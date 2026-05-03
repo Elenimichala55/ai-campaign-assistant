@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Campaign Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="page">
+
+        <section class="hero">
+            <div class="hero-orb hero-orb-one"></div>
+            <div class="hero-orb hero-orb-two"></div>
+
+            <div class="hero-content">
+                <div>
+                    <p class="eyebrow">AI Marketing Technology</p>
+                    <h1>AI Campaign Studio</h1>
+                    <p class="subtitle">
+                        Generate campaign strategy, channel playbooks, and visual concepts
+                        from a single structured creative brief.
+                    </p>
+
+                    <div class="feature-pills">
+                        <span>Strategy</span>
+                        <span>Channel Playbooks</span>
+                        <span>Creative Visuals</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-grid">
+
+            <form id="campaignForm" class="panel brief-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-kicker">Input</p>
+                        <h2>Brief Console</h2>
+                    </div>
+                    <span class="status-pill">Gemini</span>
+                </div>
+
+                <p class="panel-description">
+                    Define the campaign context and let the assistant generate a structured creative direction.
+                </p>
+
+                <div class="field-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" value="Nike" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="product">Product</label>
+                    <input type="text" id="product" value="Running shoes" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="target_audience">Target Audience</label>
+                    <input type="text" id="target_audience" value="University students" required>
+                </div>
+
+                <div class="field-group">
+                    <label for="campaign_goal">Campaign Goal</label>
+                    <input type="text" id="campaign_goal" value="Increase online sales" required>
+                </div>
+
+                <div class="two-fields">
+                    <div class="field-group">
+                        <label for="tone">Tone</label>
+                        <select id="tone">
+                            <option>Energetic</option>
+                            <option>Professional</option>
+                            <option>Friendly</option>
+                            <option>Luxury</option>
+                            <option>Playful</option>
+                            <option>Minimal</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="budget_level">Budget</label>
+                        <select id="budget_level">
+                            <option>Low</option>
+                            <option selected>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="platform">Main Platform</label>
+                    <select id="platform">
+                        <option>Instagram</option>
+                        <option>TikTok</option>
+                        <option>LinkedIn</option>
+                        <option>Google Search Ads</option>
+                        <option>Email Campaign</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="generateBtn" class="primary-btn">
+                    Generate Campaign
+                </button>
+            </form>
+
+            <section class="panel strategy-panel">
+                <div class="panel-heading output-heading">
+                    <div>
+                        <p class="panel-kicker">AI Strategy Output</p>
+                        <h2>Generated Campaign</h2>
+                        <p id="sourceText" class="source-text">Waiting for input...</p>
+                    </div>
+
+                    <div class="action-row">
+                        <button id="copyBtn" class="secondary-btn" type="button" disabled>Copy</button>
+                        <button id="downloadBtn" class="secondary-btn" type="button" disabled>Download</button>
+                    </div>
+                </div>
+
+                <div id="loading" class="loading hidden">
+                    Generating campaign strategy...
+                </div>
+
+                <div id="output" class="strategy-output">
+                    <p class="placeholder">Your AI-generated campaign strategy will appear here.</p>
+                </div>
+            </section>
+
+        </section>
+
+        <section class="panel channel-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="panel-kicker">Channel Playbooks</p>
+                    <h2>Platform-Specific Output</h2>
+                </div>
+                <span class="status-pill">Instagram · TikTok · LinkedIn</span>
+            </div>
+
+            <p class="panel-description">
+                Each card adapts the same campaign idea into a different platform format.
+            </p>
+
+            <div id="platformCards" class="platform-grid">
+                <p class="empty">Generate a campaign to see platform-specific cards.</p>
+            </div>
+        </section>
+
+        <section class="panel creative-panel">
+            <div class="creative-header">
+                <div>
+                    <p class="panel-kicker">Creative Studio</p>
+                    <h2>Marketing Visual Generator</h2>
+                    <p class="panel-description">
+                        Generate a real campaign visual from the AI-produced creative prompt.
+                    </p>
+                </div>
+
+                <div class="creative-controls">
+                    <div class="field-group compact-field">
+                        <label for="visualPlatformSelect">Visual Format</label>
+                        <select id="visualPlatformSelect">
+                            <option>Instagram</option>
+                            <option>TikTok</option>
+                            <option>LinkedIn</option>
+                        </select>
+                    </div>
+
+                    <button id="generateVisualBtn" class="secondary-btn" type="button" disabled>
+                        Generate Visual
+                    </button>
+
+                    <button id="downloadVisualBtn" class="secondary-btn" type="button" disabled>
+                        Download Visual
+                    </button>
+                </div>
+            </div>
+
+            <div class="creative-grid">
+                <div class="visual-showcase">
+                    <div class="showcase-top">
+                        <h3>Visual Preview</h3>
+                    </div>
+
+                    <div id="visualPreviewBox" class="visual-preview-box">
+                        <p class="empty">No visual generated yet.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-board">
+                    <div class="showcase-top">
+                        <h3>Visual Prompt</h3>
+                        <span class="mini-label">Creative Direction</span>
+                    </div>
+
+                    <div id="visualPromptText" class="visual-prompt-text">
+                        Generate a campaign first to see the visual prompt.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel history-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="panel-kicker">Saved Work</p>
+                    <h2>Saved Campaigns</h2>
+                </div>
+
+                <button id="clearHistoryBtn" class="secondary-btn" type="button">
+                    Clear History
+                </button>
+            </div>
+
+            <p class="panel-description">
+                Click any saved campaign to reload its strategy, channel cards, and creative prompt.
+            </p>
+
+            <div id="historyList" class="history-list">
+                <p class="empty">No campaigns generated yet.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
