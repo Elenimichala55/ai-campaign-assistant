@@ -2,7 +2,7 @@
 
 AI Campaign Studio is a full-stack AI marketing assistant that generates campaign strategies, platform-specific content cards, and marketing visuals from a structured creative brief.
 
-The project combines a FastAPI backend with a modern HTML/CSS/JavaScript frontend. It uses the Gemini API for campaign strategy generation and the Hugging Face Inference API with FLUX.1-schnell for image generation.
+The project combines a FastAPI backend with a modern HTML/CSS/JavaScript frontend. It uses LangChain with the Gemini API for campaign strategy generation and the Hugging Face Inference API with FLUX.1-schnell for image generation.
 
 ## Features
 
@@ -22,6 +22,7 @@ The project combines a FastAPI backend with a modern HTML/CSS/JavaScript fronten
 - Python
 - FastAPI
 - Pydantic
+- LangChain
 - Gemini API
 - Hugging Face Inference API
 - FLUX.1-schnell
@@ -81,8 +82,8 @@ The app generates:
 
 ### How It Works
 1. The user fills in a structured campaign brief.
-2. The FastAPI backend sends the brief to the Gemini API.
-3. Gemini returns a structured campaign plan, platform cards, and a visual prompt.
+2. The FastAPI backend passes the brief into a LangChain prompt workflow.
+3. LangChain calls Gemini to generate a structured campaign plan, platform cards, and a visual prompt.
 4. The frontend displays the strategy and platform-specific outputs.
 5. The user can generate a visual using the Hugging Face Inference API.
 6. The generated campaign can be copied, downloaded, or saved in local browser history.
@@ -206,7 +207,7 @@ HF_TOKEN
 
 I built this project to explore how generative AI can support marketing technology workflows. The app demonstrates how AI can turn structured business inputs into campaign strategy, channel-specific outputs, and visual creative concepts.
 
-It is designed as a practical AI software engineering project combining backend APIs, frontend interaction, LLM integration, image generation, and user-focused product design.
+It is designed as a practical AI software engineering project combining backend APIs, LangChain prompt workflows, frontend interaction, LLM integration, image generation, and user-focused product design.
 
 ## Future Improvements
 

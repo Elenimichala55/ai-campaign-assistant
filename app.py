@@ -13,6 +13,9 @@ from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
 from huggingface_hub import InferenceClient
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
 
 load_dotenv()
@@ -30,6 +33,12 @@ if not hf_token:
     raise RuntimeError("HF_TOKEN is missing. Add it to your .env file.")
 
 hf_client = InferenceClient(token=hf_token)
+
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    google_api_key=api_key,
+    temperature=0.7
+)
 
 app = FastAPI(
     title="AI Campaign Assistant",
@@ -249,12 +258,8 @@ Rules:
 """
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
-        )
-
-        raw_text = response.text or ""
+        chain = ChatPromptTemplate.from_template("{prompt}") | llm | StrOutputParser()
+        raw_text = chain.invoke({"prompt": prompt})
         cleaned = clean_json_text(raw_text)
         parsed = json.loads(cleaned)
 
