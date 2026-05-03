@@ -237,15 +237,6 @@ It is designed as a practical AI software engineering project combining backend 
 ![Generated Visual](screenshots/screenshot4.png)
 
 
-
-```text
-screenshots/
-├── home.png
-├── generated-campaign.png
-├── platform-cards.png
-└── generated-visual.png
-```
-
 ## License
 
 This project is for educational and portfolio purposes.
