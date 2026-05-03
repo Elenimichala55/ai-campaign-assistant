@@ -221,15 +221,22 @@ It is designed as a practical AI software engineering project combining backend 
 
 ## Screenshots
 
+### Home Page
 
+![Home Page](screenshots/screenshot1.png)
 
-```text
-screenshots/
-├── home.png
-├── generated-campaign.png
-├── platform-cards.png
-└── generated-visual.png
-```
+### Generated Campaign
+
+![Generated Campaign](screenshots/screenshot2.png)
+
+### Platform Cards
+
+![Platform Cards](screenshots/screenshot3.png)
+
+### Generated Visual
+
+![Generated Visual](screenshots/screenshot4.png)
+
 
 ## License
 
