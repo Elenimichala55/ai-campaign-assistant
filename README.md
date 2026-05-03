@@ -16,6 +16,12 @@ The project combines a FastAPI backend with a modern HTML/CSS/JavaScript fronten
 - Reload previous campaigns from clickable history cards
 - Responsive frontend with a modern creative-studio interface
 
+## Live Demo
+
+The app is deployed on Render and can be accessed here:
+
+[AI Campaign Studio Live Demo](https://ai-campaign-assistant.onrender.com)
+
 ## Tech Stack
 
 ### Backend
@@ -173,14 +179,7 @@ This folder is ignored by Git because generated files should not be committed.
 
 ## Deployment Notes
 
-This app cannot be deployed with GitHub Pages alone because it requires a Python FastAPI backend and private API keys.
-
-Recommended deployment platforms:
-
-- Render
-- Railway
-- Hugging Face Spaces
-- PythonAnywhere
+This app is deployed on Render because it requires a Python FastAPI backend and private API keys. GitHub Pages alone cannot run the backend.
 
 For Render, use:
 
