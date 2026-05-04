@@ -213,7 +213,7 @@ button:hover:not(:disabled) {
 
 #generateVisualBtn {
     background-color: #adffbf;
-    border: 2px solid #5aff7e;
+    border: 2px solid #000000;
     color:rgb(0, 0, 0)
 }
 
